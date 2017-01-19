@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/public', express.static(`${__dirname}${path.sep}public`))
 app.use(express.static(path.resolve(__dirname, 'build')))
 
-midi()
+
 
 app.get('/test', notImplemented)
 
