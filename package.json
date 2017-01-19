@@ -1,0 +1,39 @@
+{
+  "name": "conductor",
+  "version": "1.0.0",
+  "description": "« Le chef d'orchestre est un prisme, une sorte de diamant, par lequel passent les faisceaux de toutes les individualités de l'orchestre »",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicosoap/Conductor.git"
+  },
+  "keywords": [
+    "Lilly",
+    "Supply-chain",
+    "factory",
+    "music",
+    "instrument"
+  ],
+  "author": "opichou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicosoap/Conductor/issues"
+  },
+  "homepage": "https://github.com/nicosoap/Conductor#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "midi": "^0.9.5",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0"
+  }
+}
