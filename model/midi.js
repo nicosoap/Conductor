@@ -28,7 +28,8 @@ const ring = (sound, tone) => {
 	process.stdout.write(`${tone} `)
 }
 // 144 = Note on
-setInterval(() => {ring([144,33,1], 'A0')}, 480)
+const carpet = setInterval(() => {ring([144,33,1], 'A0')}, 500)
+const flush = setInterval(() => {ring([145,41,1], 'A0')}, 500)
 
 // Close the port when done.
 // output.closePort()
