@@ -44,15 +44,18 @@ Live.prototype.ring =  function (sound, tone) {
 
 // Send a note
 Live.prototype.note = function (tone, machine) {
+	if (!machine) machine = 0
+	if (!tone) tone = 11
 	this.ring([144 + machine, 33 + tone, 1], `Silent alarme on machine ${__machines[machine]}`)
 }
 
 // Send a beat
 Live.prototype.trail = function (bpm, decay) {
-	if (!bpm) return
+	if (!bpm || this.carpet || this.flush) return
 	if (!decay) decay = 1/2
 	const tempo = 60000 / bpm
-	const carpet = setInterval(() => {this.ring([145,44,1], 'A0')}, tempo)
-	let flush = null
-	setTimeout(() => flush = setInterval(() => {this.ring([144,41,1], 'D0')}, tempo), tempo * decay)
+	this.carpet = setInterval(() => {this.ring([145, 44, 1], 'A0')}, tempo)
+	this.flush = null
+	setTimeout(() => {
+		flush = setInterval(() => { this.ring([144, 41, 1], 'D0') }, tempo) }, tempo * decay)
 }

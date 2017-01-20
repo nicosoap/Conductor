@@ -33,10 +33,13 @@
     "body-parser": "^1.16.0",
     "cors": "^2.8.1",
     "express": "^4.14.0",
+    "mic": "^2.1.1",
     "midi": "^0.9.5",
+    "on-blow": "^1.0.0",
     "path": "^0.12.7",
     "play-sound": "^1.1.1",
-    "record-audio": "^1.0.0"
+    "record-audio": "^1.0.0",
+    "wav-encoder": "^1.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
