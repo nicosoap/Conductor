@@ -4,7 +4,7 @@ import axios	from 'axios'
 import mic		from 'mic'
 import fs		from 'fs'
 
-const micInstance = mic({ 'rate': '16000', 'channels': '1', 'debug': true, 'exitOnSilence': 6 })
+const micInstance = mic({ rate: '16000', channels: '1', debug: true, exitOnSilence: 6 })
 const micInputStream = micInstance.getAudioStream()
 
 const outputFileStream = fs.createWriteStream('operator.wav')

@@ -20,9 +20,9 @@ export default function Live() {
 	this.selected = false
 	for (let i = 0; i < portCount; i += 1) {
 		this.portName[i] = this.output.getPortName(i)
-		if (this.portName[i].match(/Conductor 1/)) this.selected = i
+		if (this.portName[i].match(/Conductor/)) this.selected = i
 	}
-	console.log(this.portCount, this.portName)
+	console.log(`${portCount} midi interface${portCount > 1 ? 's' : ''} found,`, `now connecting to '${this.portName}'`)
 	// const selected = portName.indexOf('01. Ethernet MIDI 5')
 
 	// Open the first available output port.

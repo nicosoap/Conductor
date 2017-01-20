@@ -5,10 +5,11 @@ import path						from 'path'
 import bodyParser				from 'body-parser'
 import cors						from 'cors'
 // import player from 'play-sound'
-const player = require('play-sound')({ player: 'live' })
 
 import Live					from './model/midi'
-import mic					from './model/listen'
+import * as mic					from './model/listen'
+
+const player = require('play-sound')({ player: 'live' })
 
 const app				= express()
 const notImplemented	= (req, res) => res.status(501).json({
@@ -39,9 +40,10 @@ app.get('/speak', (req, res) => {
 			res.send({ status: 'ERROR', success: false, message: 'Error while speaking to Operator' })
 		} else {
 			res.send({ status: 'OK', success: true, message: 'Message spoken to Operator' })
+			mic.listen()
 		}
 	})
 })
 app.get('/test', notImplemented)
 
-app.listen(8087, () => console.log('AUDIO SERVER STARTED ON PORT 8087'))
+app.listen(8087, () => console.log('Conductor audio server listening on port 8087'))
