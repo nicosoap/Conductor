@@ -30,9 +30,7 @@ export default function Live() {
 	if (this.selected) this.output.openPort(this.selected)
 
 	// 144 = Note on
-	const carpet = setInterval(() => {this.ring([145,44,1], 'A0')}, 500)
-	let flush = null
-	setTimeout(() => flush = setInterval(() => {this.ring([144,41,1], 'D0')}, 500), 250)
+
 
 	// Close the port when done.
 	// output.closePort()
@@ -47,4 +45,14 @@ Live.prototype.ring =  function (sound, tone) {
 // Send a note
 Live.prototype.note = function (tone, machine) {
 	this.ring([144 + machine, 33 + tone, 1], `Silent alarme on machine ${__machines[machine]}`)
+}
+
+// Send a beat
+Live.prototype.trail = function (bpm, decay) {
+	if (!bpm) return
+	if (!decay) decay = 1/2
+	const tempo = 60000 / bpm
+	const carpet = setInterval(() => {this.ring([145,44,1], 'A0')}, tempo)
+	let flush = null
+	setTimeout(() => flush = setInterval(() => {this.ring([144,41,1], 'D0')}, tempo), tempo * decay)
 }
